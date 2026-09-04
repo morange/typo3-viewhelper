@@ -2,6 +2,22 @@
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
   <file id="dmfh-mailbranding-locallang"
         original="EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf">
+    <unit id="systemEmail.footerNotice">
+      <segment>
+        <source><![CDATA[This email was sent by <strong>%1$s</strong> from URL: <a href="%2$s" target="_blank" rel="noopener">%2$s</a> - Please contact your site administrator if you feel you received this email by accident.]]></source>
+        <target><![CDATA[Diese E-Mail wurde von <strong>%1$s</strong> gesendet. URL: <a href="%2$s" target="_blank" rel="noopener">%2$s</a> - Bitte wenden Sie sich an Ihren Website-Administrator, falls Sie diese E-Mail versehentlich erhalten haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="systemEmail.footerNoticeText">
+      <segment>
+        <source>This email was sent by %1$s from URL: %2$s
+
+Please contact your site administrator if you feel you received this email by accident.</source>
+        <target>Diese E-Mail wurde von %1$s gesendet. URL: %2$s
+
+Bitte wenden Sie sich an Ihren Website-Administrator, falls Sie diese E-Mail versehentlich erhalten haben.</target>
+      </segment>
+    </unit>
     <unit id="footer.founder">
       <segment>
         <source>Represented by:</source>
