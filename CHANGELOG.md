@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.1] — 2026-09-04
+
+### Fixed
+
+- **[!!!]** Found the actual root cause of the English-footer bug that v0.4.0 attempted to fix:
+  `de.locallang.xlf`'s `<file>` element was missing `target-language="de"`. TYPO3's `XliffLoader`
+  decides purely from that attribute whether a file is a source template or a translation - without
+  it, the file is read as a source file and every `<target>` is ignored in favor of `<source>`,
+  regardless of which locale is requested (confirmed via a CLI reproduction that called
+  `LanguageService::sL()` directly with `locale=de`, no HTTP request/FluidEmail context involved at
+  all, and still got the English `<source>` text back). The filename (`de.locallang.xlf`) has no
+  bearing on this; only the `target-language` attribute does.
+- Rewrote `locallang.xlf` and `de.locallang.xlf` from ad-hoc XLIFF 1.0 to proper XLIFF 2.0
+  (`srcLang="en"` / `trgLang="de"`, `<unit>`/`<segment>` instead of `<trans-unit>`), per this
+  project's own XLIFF guideline: v14-only extensions must use XLIFF 2.0, and `trgLang` is exactly
+  the attribute that was missing.
+- The v0.4.0 `<dmfh:siteLanguage>` ViewHelper and explicit `languageKey="..."` on every
+  `<f:translate>` call remain in place as a correct, defensive fix for the separate
+  `ApplicationType`/`isFrontend()` auto-detection gap - but that alone could not have fixed the
+  reported symptom, since the missing `target-language` attribute breaks translation for every
+  locale unconditionally, independent of how the locale is determined.
+
 ## [0.4.0] — 2026-09-04
 
 ### Fixed

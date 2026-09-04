@@ -1,38 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2026-09-04T00:00:00Z"
-	      product-name="mailbranding">
-		<header>
-			<generator>dmfh/typo3-mail-branding</generator>
-		</header>
-		<body>
-			<trans-unit id="footer.founder">
-				<source>Represented by:</source>
-			</trans-unit>
-			<trans-unit id="footer.contact">
-				<source>Contact:</source>
-			</trans-unit>
-			<trans-unit id="footer.phone">
-				<source>Phone:</source>
-			</trans-unit>
-			<trans-unit id="footer.fax">
-				<source>Fax:</source>
-			</trans-unit>
-			<trans-unit id="footer.email">
-				<source>Email:</source>
-			</trans-unit>
-			<trans-unit id="footer.register_entry">
-				<source>Register entry:</source>
-			</trans-unit>
-			<trans-unit id="footer.register_court">
-				<source>Registered court:</source>
-			</trans-unit>
-			<trans-unit id="footer.register_number">
-				<source>Registration number:</source>
-			</trans-unit>
-			<trans-unit id="footer.tax_number">
-				<source>Tax number:</source>
-			</trans-unit>
-		</body>
-	</file>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+  <file id="dmfh-mailbranding-locallang"
+        original="EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf">
+    <unit id="footer.founder">
+      <segment>
+        <source>Represented by:</source>
+      </segment>
+    </unit>
+    <unit id="footer.contact">
+      <segment>
+        <source>Contact:</source>
+      </segment>
+    </unit>
+    <unit id="footer.phone">
+      <segment>
+        <source>Phone:</source>
+      </segment>
+    </unit>
+    <unit id="footer.fax">
+      <segment>
+        <source>Fax:</source>
+      </segment>
+    </unit>
+    <unit id="footer.email">
+      <segment>
+        <source>Email:</source>
+      </segment>
+    </unit>
+    <unit id="footer.register_entry">
+      <segment>
+        <source>Register entry:</source>
+      </segment>
+    </unit>
+    <unit id="footer.register_court">
+      <segment>
+        <source>Registered court:</source>
+      </segment>
+    </unit>
+    <unit id="footer.register_number">
+      <segment>
+        <source>Registration number:</source>
+      </segment>
+    </unit>
+    <unit id="footer.tax_number">
+      <segment>
+        <source>Tax number:</source>
+      </segment>
+    </unit>
+  </file>
 </xliff>
