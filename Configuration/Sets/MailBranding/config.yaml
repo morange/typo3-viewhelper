@@ -1,0 +1,5 @@
+name: dmfh/mail-branding
+label: 'Mail Branding (settings-driven system-email footer/logo)'
+
+dependencies:
+  - typo3/email

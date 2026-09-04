@@ -1,0 +1,14 @@
+{namespace dmfh=Dmfh\MailBranding\ViewHelpers}<f:spaceless><f:render section="Title" optional="true" />
+<f:render section="Main" /></f:spaceless>
+
+This email was sent by {typo3.sitename} from URL: {normalizedParams.siteUrl}
+
+Please contact your site administrator if you feel you received this email by accident.
+
+<dmfh:siteSetting path="mailBranding.footer.organizationName" default="" /> · <dmfh:siteSetting path="mailBranding.footer.street" default="" /> · <dmfh:siteSetting path="mailBranding.footer.postalCode" default="" /> <dmfh:siteSetting path="mailBranding.footer.city" default="" />
+
+<f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.contact" /> <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.phone" /> <dmfh:siteSetting path="mailBranding.footer.phone" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.fax" /> <dmfh:siteSetting path="mailBranding.footer.fax" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.email" /> <dmfh:siteSetting path="mailBranding.footer.email" default="" />
+<f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.founder" /> <dmfh:siteSetting path="mailBranding.footer.representative" default="" />
+<f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_court" /> <dmfh:siteSetting path="mailBranding.footer.registerCourt" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_number" /> <dmfh:siteSetting path="mailBranding.footer.registerNumber" default="" />
+<f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_entry" /> <dmfh:siteSetting path="mailBranding.footer.registerType" default="" />
+<f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.tax_number" /> <dmfh:siteSetting path="mailBranding.footer.taxNumber" default="" />

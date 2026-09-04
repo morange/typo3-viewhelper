@@ -1,0 +1,95 @@
+categories:
+  MailBranding: ~
+  MailBranding.logo:
+    parent: MailBranding
+    label: 'Logo'
+  MailBranding.footer:
+    parent: MailBranding
+    label: 'Footer'
+
+settings:
+  mailBranding.logo.path:
+    category: MailBranding.logo
+    type: string
+    default: ''
+    label: 'Logo-Pfad (EXT:...)'
+    description: 'z. B. EXT:my_sitepackage/Resources/Public/Images/logo.png. Leer = TYPO3-Standardlogik (Backend-Login-Logo bzw. TYPO3-Logo).'
+
+  mailBranding.logo.alt:
+    category: MailBranding.logo
+    type: string
+    default: 'Logo'
+    label: 'Logo Alt-Text'
+
+  mailBranding.footer.organizationName:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Organisationsname'
+
+  mailBranding.footer.street:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Straße und Hausnummer'
+
+  mailBranding.footer.postalCode:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Postleitzahl'
+
+  mailBranding.footer.city:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Ort'
+
+  mailBranding.footer.phone:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Telefonnummer'
+
+  mailBranding.footer.fax:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Faxnummer'
+
+  mailBranding.footer.email:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'E-Mail-Adresse'
+
+  mailBranding.footer.representative:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Vertretungsberechtigte Person'
+
+  mailBranding.footer.registerType:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Registerart (z. B. "Eintragung im Vereinsregister")'
+    description: 'Freitext, da abhängig von der Rechtsform (Vereinsregister, Handelsregister, Genossenschaftsregister, ...).'
+
+  mailBranding.footer.registerCourt:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Registergericht'
+
+  mailBranding.footer.registerNumber:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Registernummer'
+
+  mailBranding.footer.taxNumber:
+    category: MailBranding.footer
+    type: string
+    default: ''
+    label: 'Steuernummer'

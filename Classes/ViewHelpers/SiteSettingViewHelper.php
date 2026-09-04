@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dmfh\ViewHelper\ViewHelpers;
+namespace Dmfh\MailBranding\ViewHelpers;
 
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Site\Entity\Site;
@@ -18,13 +18,13 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  * call is required in the calling code.
  *
  * Usage:
- * <dmfh:siteSetting path="mail.footer.phone" default="" />
+ * <dmfh:siteSetting path="mailBranding.footer.phone" default="" />
  */
 final class SiteSettingViewHelper extends AbstractViewHelper
 {
     public function initializeArguments(): void
     {
-        $this->registerArgument('path', 'string', 'Dotted path into the site settings, e.g. "mail.footer.phone"', true);
+        $this->registerArgument('path', 'string', 'Dotted path into the site settings, e.g. "mailBranding.footer.phone"', true);
         $this->registerArgument('default', 'mixed', 'Fallback value when no site or setting is available', false, '');
     }
 

@@ -1,9 +1,9 @@
 {
-    "name": "dmfh/typo3-viewhelper",
-    "description": "Shared collection of reusable Fluid ViewHelpers for TYPO3 v14+ projects (dermatthes-frauhofer).",
+    "name": "dmfh/typo3-mail-branding",
+    "description": "Settings-driven TYPO3 v14+ system-email branding: Site Set with typed footer/logo settings, a Fluid Layout, and the ViewHelper needed to read site settings inside FluidEmail templates (dermatthes-frauhofer).",
     "type": "typo3-cms-extension",
     "license": "MIT",
-    "keywords": ["typo3", "fluid", "viewhelper"],
+    "keywords": ["typo3", "fluid", "email", "site-settings"],
     "authors": [
         {
             "name": "Steffen Matthes",
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Dmfh\\ViewHelper\\": "Classes/"
+            "Dmfh\\MailBranding\\": "Classes/"
         }
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "dmfh_viewhelper"
+            "extension-key": "dmfh_mailbranding"
         }
     },
     "config": {

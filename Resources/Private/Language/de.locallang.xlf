@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2026-09-04T00:00:00Z"
+	      product-name="mailbranding">
+		<header>
+			<generator>dmfh/typo3-mail-branding</generator>
+		</header>
+		<body>
+			<trans-unit id="footer.founder">
+				<source>Represented by:</source>
+				<target>Vertreten durch:</target>
+			</trans-unit>
+			<trans-unit id="footer.contact">
+				<source>Contact:</source>
+				<target>Kontakt:</target>
+			</trans-unit>
+			<trans-unit id="footer.phone">
+				<source>Phone:</source>
+				<target>Tel:</target>
+			</trans-unit>
+			<trans-unit id="footer.fax">
+				<source>Fax:</source>
+				<target>Fax:</target>
+			</trans-unit>
+			<trans-unit id="footer.email">
+				<source>Email:</source>
+				<target>E-Mail:</target>
+			</trans-unit>
+			<trans-unit id="footer.register_entry">
+				<source>Register entry:</source>
+				<target>Registereintrag:</target>
+			</trans-unit>
+			<trans-unit id="footer.register_court">
+				<source>Registered court:</source>
+				<target>Registergericht:</target>
+			</trans-unit>
+			<trans-unit id="footer.register_number">
+				<source>Registration number:</source>
+				<target>Registernummer:</target>
+			</trans-unit>
+			<trans-unit id="footer.tax_number">
+				<source>Tax number:</source>
+				<target>Steuernummer:</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
