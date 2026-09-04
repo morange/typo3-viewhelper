@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.2] — 2026-09-04
+
+### Fixed
+
+- Translate the footer disclaimer ("This email was sent by ... Please contact your site
+  administrator if you feel you received this email by accident.") to German. Unlike the rest of
+  the footer, this sentence was still hardcoded in English in both `SystemEmail.fluid.html` and
+  `SystemEmail.fluid.txt`. Moved into `locallang.xlf`/`de.locallang.xlf` as
+  `systemEmail.footerNotice` (HTML, wrapped in `<f:format.raw>` since `<f:translate>` output is
+  escaped by default) and `systemEmail.footerNoticeText` (plain text), using ordered `%1$s`/`%2$s`
+  placeholders per this project's XLIFF guideline instead of splitting the sentence across keys.
+
 ## [0.4.1] — 2026-09-04
 
 ### Fixed
