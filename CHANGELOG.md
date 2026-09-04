@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] — 2026-09-04
+
+### Fixed
+
+- **[!!!]** Footer labels (Contact, Phone, Fax, Email, Represented by, Registered court,
+  Registration number, Register entry, Tax number) rendered in English regardless of the site's
+  language, confirmed live via Mailpit on a German-only site. Root cause: `f:translate`'s
+  automatic language detection goes through
+  `Locales::createLocaleFromRequest()`, which requires `ApplicationType::fromRequest($request)
+  ->isFrontend()` to be true before it will read the request's `site`/`language` attributes -
+  that check does not hold for the request as passed into `FluidEmail` (e.g. via EXT:form's
+  `EmailFinisher`), so it silently fell back to the backend/CLI default language (English,
+  absent a backend user) even though `site`/`language` were present on the request.
+
+### Added
+
+- Add `<dmfh:siteLanguage>` ViewHelper, which reads the `language`/`site` request attributes
+  directly (the same attributes `<dmfh:siteSetting>` already reads, without the
+  `ApplicationType` gate) and returns the TYPO3 language key. Pass it explicitly as
+  `languageKey="{dmfh:siteLanguage()}"` on every `<f:translate>` call in both layouts to bypass
+  the broken auto-detection.
+
 ## [0.3.2] — 2026-09-04
 
 ### Added

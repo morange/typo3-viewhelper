@@ -567,22 +567,22 @@
                                 <f:if condition="{hasIdentityLine}"><br /></f:if>
 
                                 <f:variable name="hasContactLine" value="0" />
-                                <f:if condition="{telephone} || {fax} || {email}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.contact" /> </f:if>
-                                <f:if condition="{telephone}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.phone" /> {telephone}<f:variable name="hasContactLine" value="1" /></f:if>
-                                <f:if condition="{fax}"><f:if condition="{hasContactLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.fax" /> {fax}<f:variable name="hasContactLine" value="1" /></f:if>
-                                <f:if condition="{email}"><f:if condition="{hasContactLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.email" /> <a href="mailto:{email}">{email}</a><f:variable name="hasContactLine" value="1" /></f:if>
+                                <f:if condition="{telephone} || {fax} || {email}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.contact" languageKey="{dmfh:siteLanguage()}" /> </f:if>
+                                <f:if condition="{telephone}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.phone" languageKey="{dmfh:siteLanguage()}" /> {telephone}<f:variable name="hasContactLine" value="1" /></f:if>
+                                <f:if condition="{fax}"><f:if condition="{hasContactLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.fax" languageKey="{dmfh:siteLanguage()}" /> {fax}<f:variable name="hasContactLine" value="1" /></f:if>
+                                <f:if condition="{email}"><f:if condition="{hasContactLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.email" languageKey="{dmfh:siteLanguage()}" /> <a href="mailto:{email}">{email}</a><f:variable name="hasContactLine" value="1" /></f:if>
                                 <f:if condition="{hasContactLine}"><br /></f:if>
 
-                                <f:if condition="{representative}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.founder" /> {representative}<br /></f:if>
+                                <f:if condition="{representative}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.founder" languageKey="{dmfh:siteLanguage()}" /> {representative}<br /></f:if>
 
                                 <f:variable name="hasRegisterLine" value="0" />
-                                <f:if condition="{registerCourt}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_court" /> {registerCourt}<f:variable name="hasRegisterLine" value="1" /></f:if>
-                                <f:if condition="{registerNumber}"><f:if condition="{hasRegisterLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_number" /> {registerNumber}<f:variable name="hasRegisterLine" value="1" /></f:if>
+                                <f:if condition="{registerCourt}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_court" languageKey="{dmfh:siteLanguage()}" /> {registerCourt}<f:variable name="hasRegisterLine" value="1" /></f:if>
+                                <f:if condition="{registerNumber}"><f:if condition="{hasRegisterLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_number" languageKey="{dmfh:siteLanguage()}" /> {registerNumber}<f:variable name="hasRegisterLine" value="1" /></f:if>
                                 <f:if condition="{hasRegisterLine}"><br /></f:if>
 
-                                <f:if condition="{registerType}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_entry" /> {registerType}<br /></f:if>
+                                <f:if condition="{registerType}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_entry" languageKey="{dmfh:siteLanguage()}" /> {registerType}<br /></f:if>
 
-                                <f:if condition="{taxNumber}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.tax_number" /> {taxNumber}</f:if>
+                                <f:if condition="{taxNumber}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.tax_number" languageKey="{dmfh:siteLanguage()}" /> {taxNumber}</f:if>
                             </p>
 
                         </td></tr></tbody></table>

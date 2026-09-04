@@ -21,6 +21,9 @@ settings into every site package by hand.
   supports separate light/dark-mode logo images via `prefers-color-scheme`.
 - The **`<dmfh:siteSetting>` ViewHelper**, which reads a typed site setting inside `FluidEmail`
   templates — a context where TYPO3 does not automatically expose a `{settings}` Fluid variable.
+- The **`<dmfh:siteLanguage>` ViewHelper**, needed because `f:translate`'s own automatic language
+  detection does not work inside `FluidEmail` (see "Why `languageKey="{dmfh:siteLanguage()}"`?"
+  below) — every `<f:translate>` call in this package's layouts passes it explicitly.
 
 ## Requirements
 
@@ -113,6 +116,21 @@ Arguments:
 |-----------|--------|----------|----------------------------------------------------------------|
 | `path`    | string | yes      | Dotted path into the site settings                             |
 | `default` | mixed  | no       | Fallback when no site is resolvable or the setting is unset    |
+
+### Why `languageKey="{dmfh:siteLanguage()}"`?
+
+`f:translate`'s automatic language detection
+(`Locales::createLocaleFromRequest()`) only reads the request's `site`/`language` attributes when
+`ApplicationType::fromRequest($request)->isFrontend()` is true. That check fails for the request
+as passed into `FluidEmail` (confirmed live: a form email finisher sent on a German-only site
+rendered its footer in English), so `f:translate` silently falls back to the backend/CLI default
+language. If you add your own `<f:translate>` calls to a template that extends this package's
+`SystemEmail` layout, pass the language explicitly the same way this package's own layouts do:
+
+```html
+<f:translate key="LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:my.key"
+              languageKey="{dmfh:siteLanguage()}" />
+```
 
 ## License
 
