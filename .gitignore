@@ -1,0 +1,9 @@
+# Tooling / OS
+/vendor/
+composer.lock
+.idea/
+.vscode/
+.DS_Store
+
+# Local working notes / project memory — never committed.
+/Projektdateien/
