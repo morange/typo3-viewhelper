@@ -1,7 +1,23 @@
-# dmfh/typo3-viewhelper
+# TYPO3 ViewHelper — Shared Fluid ViewHelpers for TYPO3 v14+ Projects
 
 Shared collection of reusable Fluid ViewHelpers for TYPO3 v14+ projects. Pull this in as a
 Composer dependency instead of re-implementing the same ViewHelper in every site package.
+
+---
+
+## Features
+
+- **`<dmfh:siteSetting>`** — reads a typed TYPO3 site setting by dotted path, for use in
+  contexts where TYPO3 does not automatically expose a `{settings}` Fluid variable — most
+  notably `FluidEmail`-based email templates.
+
+## Requirements
+
+| Requirement       | Version |
+|--------------------|---------|
+| TYPO3              | ^14.3   |
+| PHP                | ^8.3    |
+| typo3fluid/fluid   | ^5.0    |
 
 ## Installation
 
@@ -23,9 +39,10 @@ composer require dmfh/typo3-viewhelper
 ```
 
 The package is a composer-mode-only TYPO3 extension (no `ext_emconf.php` needed) with
-extension key `dmfh_viewhelper`.
+extension key `dmfh_viewhelper`. Releases are tagged `vMAJOR.MINOR.PATCH`; consuming projects
+pin a version constraint in their own `composer.json`.
 
-## ViewHelpers
+## Usage
 
 ### `<dmfh:siteSetting>`
 
@@ -51,7 +68,10 @@ Arguments:
 | `path`    | string | yes      | Dotted path into the site settings                        |
 | `default` | mixed  | no       | Fallback when no site is resolvable or the setting is unset |
 
-## Versioning
+## License
 
-Tag releases as `vMAJOR.MINOR.PATCH`. Consuming projects pin a version constraint in their
-own `composer.json`.
+MIT — see [LICENSE](LICENSE)
+
+## Author
+
+Steffen Matthes — [dermatthes-frauhofer.de](https://dermatthes-frauhofer.de)
