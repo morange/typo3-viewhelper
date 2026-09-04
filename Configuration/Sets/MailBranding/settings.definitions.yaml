@@ -1,5 +1,6 @@
 categories:
-  MailBranding: ~
+  MailBranding:
+    label: 'Mail Branding'
   MailBranding.logo:
     parent: MailBranding
     label: 'Logo'

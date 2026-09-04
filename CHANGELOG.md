@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] — 2026-09-04
+
+### Fixed
+
+- Fix `settings.definitions.yaml`: top-level `MailBranding` category was declared as `~` (null)
+  while `MailBranding.logo`/`MailBranding.footer` referenced it via `parent:` — TYPO3 requires a
+  category referenced as a parent to be a full definition with a `label`, not null. This disabled
+  the entire Site Set backend-wide ("Site set 'dmfh/mail-branding' is disabled due to invalid
+  category definitions") for any consuming site.
+
 ## [0.2.0] — 2026-09-04
 
 ### Changed
