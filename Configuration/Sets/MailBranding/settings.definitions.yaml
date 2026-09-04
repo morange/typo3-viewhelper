@@ -1,96 +1,51 @@
-categories:
-  MailBranding:
-    label: 'Mail Branding'
-  MailBranding.logo:
-    parent: MailBranding
-    label: 'Logo'
-  MailBranding.footer:
-    parent: MailBranding
-    label: 'Footer'
-
 settings:
-  mailBranding.logo.path:
-    category: MailBranding.logo
+  sitekit.project.fax:
+    category: Sitekit.project
     type: string
     default: ''
-    label: 'Logo-Pfad (EXT:...)'
-    description: 'z. B. EXT:my_sitepackage/Resources/Public/Images/logo.png. Leer = TYPO3-Standardlogik (Backend-Login-Logo bzw. TYPO3-Logo).'
+    label: 'Fax'
 
-  mailBranding.logo.alt:
-    category: MailBranding.logo
-    type: string
-    default: 'Logo'
-    label: 'Logo Alt-Text'
-
-  mailBranding.footer.organizationName:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Organisationsname'
-
-  mailBranding.footer.street:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Straße und Hausnummer'
-
-  mailBranding.footer.postalCode:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Postleitzahl'
-
-  mailBranding.footer.city:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Ort'
-
-  mailBranding.footer.phone:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Telefonnummer'
-
-  mailBranding.footer.fax:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Faxnummer'
-
-  mailBranding.footer.email:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'E-Mail-Adresse'
-
-  mailBranding.footer.representative:
-    category: MailBranding.footer
+  sitekit.project.representative:
+    category: Sitekit.project
     type: string
     default: ''
     label: 'Vertretungsberechtigte Person'
 
-  mailBranding.footer.registerType:
-    category: MailBranding.footer
+  sitekit.project.registerCourt:
+    category: Sitekit.project
+    type: string
+    default: ''
+    label: 'Registergericht'
+
+  sitekit.project.registerNumber:
+    category: Sitekit.project
+    type: string
+    default: ''
+    label: 'Registernummer'
+
+  sitekit.project.registerType:
+    category: Sitekit.project
     type: string
     default: ''
     label: 'Registerart (z. B. "Eintragung im Vereinsregister")'
     description: 'Freitext, da abhängig von der Rechtsform (Vereinsregister, Handelsregister, Genossenschaftsregister, ...).'
 
-  mailBranding.footer.registerCourt:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Registergericht'
-
-  mailBranding.footer.registerNumber:
-    category: MailBranding.footer
-    type: string
-    default: ''
-    label: 'Registernummer'
-
-  mailBranding.footer.taxNumber:
-    category: MailBranding.footer
+  sitekit.project.taxNumber:
+    category: Sitekit.project
     type: string
     default: ''
     label: 'Steuernummer'
+
+  sitekit.project.brand.logo.file.email:
+    category: Sitekit.project.brand
+    type: string
+    default: ''
+    label: 'Logo für System-E-Mails, hell (PNG, EXT:...)'
+    description: 'Separat von sitekit.project.brand.logo.file.svg, da E-Mail-Clients SVG meist nicht zuverlässig rendern. Leer = TYPO3-Standardlogik (Backend-Login-Logo bzw. TYPO3-Logo). Für den hellen Hintergrund (Light Mode bzw. Clients ohne Dark-Mode-Unterstützung).'
+
+  sitekit.project.brand.logo.file.emailDark:
+    category: Sitekit.project.brand
+    type: string
+    default: ''
+    label: 'Logo für System-E-Mails, dunkel (PNG, EXT:...)'
+    description: 'Variante für Dark-Mode-fähige E-Mail-Clients (prefers-color-scheme: dark), z. B. eine helle/invertierte Logo-Version für dunklen Hintergrund. Leer = es wird dieselbe Datei wie im Light Mode verwendet.'

@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] — 2026-09-04
+
+### Changed
+
+- **[!!!]** Stop defining a parallel `mailBranding.footer.*`/`mailBranding.logo.*` settings tree.
+  `oliverthiele/ot-sitekit-base` already ships `sitekit.project.companyName`, `addressLine1`,
+  `addressLine2`, `postalCode`, `city`, `telephone`, and `email` under the `Sitekit.project`
+  category — this package now reads those directly instead of duplicating them, and adds
+  `oliverthiele/ot-sitekit-base` as a Site Set dependency. Consuming projects that already set
+  these `sitekit.project.*` values (as most SiteKit projects do, for the website itself) need no
+  extra configuration for the email footer beyond the genuinely new fields below.
+- Rename the remaining new settings to live under `Sitekit.project`/`Sitekit.project.brand`
+  instead of a standalone `MailBranding` category: `sitekit.project.fax`,
+  `sitekit.project.representative`, `sitekit.project.registerCourt`,
+  `sitekit.project.registerNumber`, `sitekit.project.registerType`, `sitekit.project.taxNumber`,
+  `sitekit.project.brand.logo.file.email`.
+
+### Added
+
+- Add `sitekit.project.brand.logo.file.emailDark` — optional dark-mode logo variant, shown to
+  `prefers-color-scheme: dark` email clients via a CSS light/dark image-swap (falls back to the
+  light logo when unset).
+- Footer now conditionally omits `companyName2`, `addressLine2`, and fax when unset, instead of
+  rendering an empty value with a stray separator.
+
 ## [0.2.1] — 2026-09-04
 
 ### Fixed

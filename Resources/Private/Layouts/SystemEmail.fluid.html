@@ -367,6 +367,13 @@
             color:#ffffff;
         }
 
+        .logo-light {
+            display:inline-block;
+        }
+        .logo-dark {
+            display:none;
+        }
+
         @media (prefers-color-scheme: dark) {
             #templateBody,
             #templateFooter {
@@ -399,6 +406,13 @@
             .footerContainer {
                 background-color:#141414;
             }
+
+            .logo-light {
+                display:none;
+            }
+            .logo-dark {
+                display:inline-block;
+            }
         }
     </style>
 </head>
@@ -430,9 +444,17 @@
                             <tbody>
                             <tr>
                                 <td valign="top" class="image" align="center" style="padding: 0px 36px; padding-bottom: 20px; text-align: center;">
-                                    <f:if condition="{dmfh:siteSetting(path: 'mailBranding.logo.path', default: '')}">
+                                    <f:variable name="logoLight" value="{dmfh:siteSetting(path: 'sitekit.project.brand.logo.file.email', default: '')}" />
+                                    <f:variable name="logoDarkSetting" value="{dmfh:siteSetting(path: 'sitekit.project.brand.logo.file.emailDark', default: '')}" />
+                                    <f:variable name="logoAlt" value="{dmfh:siteSetting(path: 'sitekit.project.companyName', default: 'Logo')}" />
+                                    <f:if condition="{logoLight}">
                                         <f:then>
-                                            <img src="{normalizedParams.siteUrl}{f:uri.resource(path: '{dmfh:siteSetting(path: \"mailBranding.logo.path\")}')}" alt="{dmfh:siteSetting(path: 'mailBranding.logo.alt', default: 'Logo')}" height="41" width="150" />
+                                            <f:if condition="{logoDarkSetting}">
+                                                <f:then><f:variable name="logoDark" value="{logoDarkSetting}" /></f:then>
+                                                <f:else><f:variable name="logoDark" value="{logoLight}" /></f:else>
+                                            </f:if>
+                                            <img class="logo-light" src="{normalizedParams.siteUrl}{f:uri.resource(path: logoLight)}" alt="{logoAlt}" height="41" width="150" />
+                                            <img class="logo-dark" src="{normalizedParams.siteUrl}{f:uri.resource(path: logoDark)}" alt="{logoAlt}" height="41" width="150" />
                                         </f:then>
                                         <f:else>
                                             <f:if condition="{typo3.systemConfiguration.backend.loginLogo}">
@@ -508,13 +530,17 @@
                             <p style="margin-top: 0;">
                                 This email was sent by <strong>{typo3.sitename}</strong> from URL: <a href="{normalizedParams.siteUrl}" target="_blank" rel="noopener">{normalizedParams.siteUrl}</a> - Please contact your site administrator if you feel you received this email by accident.
                             </p>
+                            <f:variable name="companyName2" value="{dmfh:siteSetting(path: 'sitekit.project.companyName2', default: '')}" />
+                            <f:variable name="addressLine2" value="{dmfh:siteSetting(path: 'sitekit.project.addressLine2', default: '')}" />
+                            <f:variable name="fax" value="{dmfh:siteSetting(path: 'sitekit.project.fax', default: '')}" />
+                            <f:variable name="email" value="{dmfh:siteSetting(path: 'sitekit.project.email', default: '')}" />
                             <p style="margin-top: 0;">
-                                <dmfh:siteSetting path="mailBranding.footer.organizationName" default="" /> · <dmfh:siteSetting path="mailBranding.footer.street" default="" /> · <dmfh:siteSetting path="mailBranding.footer.postalCode" default="" /> <dmfh:siteSetting path="mailBranding.footer.city" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.contact" /> <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.phone" /> <dmfh:siteSetting path="mailBranding.footer.phone" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.fax" /> <dmfh:siteSetting path="mailBranding.footer.fax" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.email" /> <a href="mailto:{dmfh:siteSetting(path: 'mailBranding.footer.email', default: '')}"><dmfh:siteSetting path="mailBranding.footer.email" default="" /></a><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.founder" /> <dmfh:siteSetting path="mailBranding.footer.representative" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_court" /> <dmfh:siteSetting path="mailBranding.footer.registerCourt" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_number" /> <dmfh:siteSetting path="mailBranding.footer.registerNumber" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_entry" /> <dmfh:siteSetting path="mailBranding.footer.registerType" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.tax_number" /> <dmfh:siteSetting path="mailBranding.footer.taxNumber" default="" />
+                                <dmfh:siteSetting path="sitekit.project.companyName" default="" /><f:if condition="{companyName2}"> · {companyName2}</f:if> · <dmfh:siteSetting path="sitekit.project.addressLine1" default="" /><f:if condition="{addressLine2}"> · {addressLine2}</f:if> · <dmfh:siteSetting path="sitekit.project.postalCode" default="" /> <dmfh:siteSetting path="sitekit.project.city" default="" /><br />
+                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.contact" /> <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.phone" /> <dmfh:siteSetting path="sitekit.project.telephone" default="" /><f:if condition="{fax}"> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.fax" /> {fax}</f:if> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.email" /> <a href="mailto:{email}">{email}</a><br />
+                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.founder" /> <dmfh:siteSetting path="sitekit.project.representative" default="" /><br />
+                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_court" /> <dmfh:siteSetting path="sitekit.project.registerCourt" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_number" /> <dmfh:siteSetting path="sitekit.project.registerNumber" default="" /><br />
+                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_entry" /> <dmfh:siteSetting path="sitekit.project.registerType" default="" /><br />
+                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.tax_number" /> <dmfh:siteSetting path="sitekit.project.taxNumber" default="" />
                             </p>
 
                         </td></tr></tbody></table>

@@ -3,3 +3,4 @@ label: 'Mail Branding (settings-driven system-email footer/logo)'
 
 dependencies:
   - typo3/email
+  - oliverthiele/ot-sitekit-base
