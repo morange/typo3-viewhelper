@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.2] — 2026-09-04
+
+### Added
+
+- Add `.mailFieldTable`/`.mailFieldSectionHeader`/`.mailFieldLabel`/`.mailFieldValue` CSS to the
+  `<style>` block, matching the classes used by the EXT:form email finisher's own
+  `Default.fluid.html` (form value table) — the label column now gets a fixed 40% width instead
+  of growing with its content.
+
+### Fixed
+
+- Every footer field (`companyName`, `companyName2`, `addressLine1`, `addressLine2`,
+  `postalCode`/`city`, `telephone`, `fax`, `email`, `representative`, `registerCourt`,
+  `registerNumber`, `registerType`, `taxNumber`) is now individually checked for a value before
+  rendering, in both `.fluid.html` and `.fluid.txt`. Previously only `companyName2`,
+  `addressLine2`, and `fax` were guarded; an unset value elsewhere (e.g. no `representative` or
+  `registerType` configured) would have rendered a bare label with nothing after it, or a stray
+  ` · ` separator next to an empty value.
+
 ## [0.3.1] — 2026-09-04
 
 ### Fixed

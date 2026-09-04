@@ -237,6 +237,19 @@
         .bodyContainer table.statistics td:last-child {
             padding-right: 0;
         }
+        .mailFieldTable {
+            width: 100%;
+        }
+        .mailFieldSectionHeader {
+            padding-top: 12px;
+        }
+        .mailFieldLabel {
+            padding-right: 12px;
+            width: 40%;
+        }
+        .mailFieldValue {
+            width: 60%;
+        }
         #templateFooter{
             background-image:none;
             background-repeat:no-repeat;
@@ -530,17 +543,46 @@
                             <p style="margin-top: 0; color: white; text-align: center; font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif; font-size:12px; line-height:150%;">
                                 This email was sent by <strong>{typo3.sitename}</strong> from URL: <a href="{normalizedParams.siteUrl}" target="_blank" rel="noopener">{normalizedParams.siteUrl}</a> - Please contact your site administrator if you feel you received this email by accident.
                             </p>
+                            <f:variable name="companyName" value="{dmfh:siteSetting(path: 'sitekit.project.companyName', default: '')}" />
                             <f:variable name="companyName2" value="{dmfh:siteSetting(path: 'sitekit.project.companyName2', default: '')}" />
+                            <f:variable name="addressLine1" value="{dmfh:siteSetting(path: 'sitekit.project.addressLine1', default: '')}" />
                             <f:variable name="addressLine2" value="{dmfh:siteSetting(path: 'sitekit.project.addressLine2', default: '')}" />
+                            <f:variable name="postalCode" value="{dmfh:siteSetting(path: 'sitekit.project.postalCode', default: '')}" />
+                            <f:variable name="city" value="{dmfh:siteSetting(path: 'sitekit.project.city', default: '')}" />
+                            <f:variable name="telephone" value="{dmfh:siteSetting(path: 'sitekit.project.telephone', default: '')}" />
                             <f:variable name="fax" value="{dmfh:siteSetting(path: 'sitekit.project.fax', default: '')}" />
                             <f:variable name="email" value="{dmfh:siteSetting(path: 'sitekit.project.email', default: '')}" />
+                            <f:variable name="representative" value="{dmfh:siteSetting(path: 'sitekit.project.representative', default: '')}" />
+                            <f:variable name="registerCourt" value="{dmfh:siteSetting(path: 'sitekit.project.registerCourt', default: '')}" />
+                            <f:variable name="registerNumber" value="{dmfh:siteSetting(path: 'sitekit.project.registerNumber', default: '')}" />
+                            <f:variable name="registerType" value="{dmfh:siteSetting(path: 'sitekit.project.registerType', default: '')}" />
+                            <f:variable name="taxNumber" value="{dmfh:siteSetting(path: 'sitekit.project.taxNumber', default: '')}" />
                             <p style="margin-top: 0; color: white; text-align: center; font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif; font-size:12px; line-height:150%;">
-                                <dmfh:siteSetting path="sitekit.project.companyName" default="" /><f:if condition="{companyName2}"> · {companyName2}</f:if> · <dmfh:siteSetting path="sitekit.project.addressLine1" default="" /><f:if condition="{addressLine2}"> · {addressLine2}</f:if> · <dmfh:siteSetting path="sitekit.project.postalCode" default="" /> <dmfh:siteSetting path="sitekit.project.city" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.contact" /> <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.phone" /> <dmfh:siteSetting path="sitekit.project.telephone" default="" /><f:if condition="{fax}"> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.fax" /> {fax}</f:if> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.email" /> <a href="mailto:{email}">{email}</a><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.founder" /> <dmfh:siteSetting path="sitekit.project.representative" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_court" /> <dmfh:siteSetting path="sitekit.project.registerCourt" default="" /> · <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_number" /> <dmfh:siteSetting path="sitekit.project.registerNumber" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_entry" /> <dmfh:siteSetting path="sitekit.project.registerType" default="" /><br />
-                                <f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.tax_number" /> <dmfh:siteSetting path="sitekit.project.taxNumber" default="" />
+                                <f:variable name="hasIdentityLine" value="0" />
+                                <f:if condition="{companyName}">{companyName}<f:variable name="hasIdentityLine" value="1" /></f:if>
+                                <f:if condition="{companyName2}"><f:if condition="{hasIdentityLine}"> · </f:if>{companyName2}<f:variable name="hasIdentityLine" value="1" /></f:if>
+                                <f:if condition="{addressLine1}"><f:if condition="{hasIdentityLine}"> · </f:if>{addressLine1}<f:variable name="hasIdentityLine" value="1" /></f:if>
+                                <f:if condition="{addressLine2}"><f:if condition="{hasIdentityLine}"> · </f:if>{addressLine2}<f:variable name="hasIdentityLine" value="1" /></f:if>
+                                <f:if condition="{postalCode} || {city}"><f:if condition="{hasIdentityLine}"> · </f:if>{postalCode} {city}<f:variable name="hasIdentityLine" value="1" /></f:if>
+                                <f:if condition="{hasIdentityLine}"><br /></f:if>
+
+                                <f:variable name="hasContactLine" value="0" />
+                                <f:if condition="{telephone} || {fax} || {email}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.contact" /> </f:if>
+                                <f:if condition="{telephone}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.phone" /> {telephone}<f:variable name="hasContactLine" value="1" /></f:if>
+                                <f:if condition="{fax}"><f:if condition="{hasContactLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.fax" /> {fax}<f:variable name="hasContactLine" value="1" /></f:if>
+                                <f:if condition="{email}"><f:if condition="{hasContactLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.email" /> <a href="mailto:{email}">{email}</a><f:variable name="hasContactLine" value="1" /></f:if>
+                                <f:if condition="{hasContactLine}"><br /></f:if>
+
+                                <f:if condition="{representative}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.founder" /> {representative}<br /></f:if>
+
+                                <f:variable name="hasRegisterLine" value="0" />
+                                <f:if condition="{registerCourt}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_court" /> {registerCourt}<f:variable name="hasRegisterLine" value="1" /></f:if>
+                                <f:if condition="{registerNumber}"><f:if condition="{hasRegisterLine}"> · </f:if><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_number" /> {registerNumber}<f:variable name="hasRegisterLine" value="1" /></f:if>
+                                <f:if condition="{hasRegisterLine}"><br /></f:if>
+
+                                <f:if condition="{registerType}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.register_entry" /> {registerType}<br /></f:if>
+
+                                <f:if condition="{taxNumber}"><f:translate key="LLL:EXT:dmfh_mailbranding/Resources/Private/Language/locallang.xlf:footer.tax_number" /> {taxNumber}</f:if>
                             </p>
 
                         </td></tr></tbody></table>
